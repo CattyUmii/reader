@@ -1,7 +1,7 @@
 import 'package:book_store/components/bottomBar.dart';
-import 'package:book_store/components/mainDrawer.dart';
 import 'package:book_store/widgets/author.dart';
 import 'package:book_store/widgets/categories.dart';
+import 'package:book_store/widgets/drawer/mainDrawer.dart';
 import 'package:book_store/widgets/forYouWidget.dart';
 import 'package:book_store/widgets/topReader.dart';
 import 'package:book_store/widgets/topSharing.dart';
@@ -10,14 +10,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:book_store/constants/tabList.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:book_store/components/stickyTabBar.dart';
-
 class HomeScreen extends StatefulWidget {
   @override
   _State createState() => _State();
 }
 
-class _State extends State<HomeScreen> with SingleTickerProviderStateMixin{
+class _State extends State<HomeScreen> with SingleTickerProviderStateMixin {
 
   TabController _tabController;
   ScrollController _scrollViewController;
@@ -46,6 +44,7 @@ class _State extends State<HomeScreen> with SingleTickerProviderStateMixin{
             headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
+                  floating: false,
                   automaticallyImplyLeading: false,
                   titleSpacing: 0,
                   leading: null,
@@ -106,6 +105,30 @@ class _State extends State<HomeScreen> with SingleTickerProviderStateMixin{
       drawer: MainDrawer(),
       bottomNavigationBar: BottomBar(),
     );
+  }
+}
 
+class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabBar child;
+
+  StickyTabBarDelegate({@required this.child});
+
+  @override
+  double get minExtent => this.child.preferredSize.height;
+
+  @override
+  double get maxExtent => this.child.preferredSize.height;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return new Container(
+      color: Colors.white,
+      child: this.child,
+    );
+  }
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }
