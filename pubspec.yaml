@@ -50,6 +50,8 @@ flutter:
   assets:
     - assets/img/
     - assets/img/splash/
+    - assets/img/books/
+    #- assets/img/authors
   #    - assets/img/avatar_img.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

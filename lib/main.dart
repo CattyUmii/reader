@@ -1,4 +1,3 @@
-import 'package:book_store/screens/homeScreen.dart';
 import 'package:book_store/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 void main() {

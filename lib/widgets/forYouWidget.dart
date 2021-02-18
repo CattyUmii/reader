@@ -1,5 +1,4 @@
-import 'package:book_store/screens/detailScreen.dart';
-import 'package:flutter/cupertino.dart';
+import 'file:///D:/FlutterProject/reader/reader/lib/screens/detail/detailScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:book_store/models/BookList.dart';
 

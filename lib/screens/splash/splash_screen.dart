@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:book_store/screens/homeScreen.dart';
+import 'file:///D:/FlutterProject/reader/reader/lib/screens/home/homeScreen.dart';
+import 'package:book_store/screens/home/start_screen.dart';
 import 'package:book_store/util/router.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   changeScreen() async {
     MyRouter.pushPageReplacement(
       context,
-      HomeScreen(),
+      StartScreen(),
     );
   }
 

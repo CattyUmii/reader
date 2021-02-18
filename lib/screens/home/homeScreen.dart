@@ -1,4 +1,4 @@
-import 'package:book_store/components/bottomBar.dart';
+import 'package:book_store/util/utils.dart';
 import 'package:book_store/widgets/author.dart';
 import 'package:book_store/widgets/categories.dart';
 import 'package:book_store/widgets/drawer/mainDrawer.dart';
@@ -43,38 +43,7 @@ class _State extends State<HomeScreen> with SingleTickerProviderStateMixin {
             floatHeaderSlivers: true,
             headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
-                SliverAppBar(
-                  floating: false,
-                  automaticallyImplyLeading: false,
-                  titleSpacing: 0,
-                  leading: null,
-                  title: Padding(
-                    padding: EdgeInsets.only(right: 10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Builder(
-                            builder: (context) => IconButton(
-                                icon: Icon(FontAwesomeIcons.bars, color: Colors.amber),
-                                onPressed: () => Scaffold.of(context).openDrawer())
-                        ),
-                        Text(
-                            "Book Reader",
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(color: Colors.black),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400
-                            )),
-                        Spacer(),
-                        Image.asset('assets/img/avatar_img.png', width: 50, height: 50,)
-                      ],
-                    ),
-                  ),
-                  pinned: false,
-                  backgroundColor: Colors.white,
-                  elevation: 0.0,
-                  forceElevated: innerBoxIsScrolled,
-                ),
+                Utils.silverAppbar(),
                 SliverPersistentHeader(
                   pinned: true,
                   delegate: StickyTabBarDelegate(
@@ -103,7 +72,6 @@ class _State extends State<HomeScreen> with SingleTickerProviderStateMixin {
         ),
       ),
       drawer: MainDrawer(),
-      bottomNavigationBar: BottomBar(),
     );
   }
 }
